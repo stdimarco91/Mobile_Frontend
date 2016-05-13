@@ -5,22 +5,21 @@
     <meta charset="UTF-8">
     <script src="cordova.js"></script>
     <title>Title</title>
-
+    <script src="smartphone/js/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8">
-        console.log("1");
     document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
-            console.log("called");
-            console.log(device.uuid);
-            var element = document.getElementById('deviceProperties');
-            element.innerHTML= 'Device Name:' + device.uuid;
+           // var element = document.getElementById('deviceProperties');
+            //element.innerHTML= 'Device Name:' + device.uuid;
+
+            $("#deviceProperties").html("Device Name:"+device.uuid);
         }
     </script>
 </head>
 <body>
 <p id="deviceProperties">Loading device properties...</p>
-<button id="boh" onclick="onDeviceReady();">Prova</button>
+
 </body>
 
 
