@@ -7,9 +7,11 @@
     <title>Title</title>
 
     <script type="text/javascript" charset="utf-8">
+        console.log("1");
     document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
+            console.log(device.uuid);
             var element = document.getElementById('deviceProperties');
             element.innerHTML= 'Device Name:' + device.uuid;
         }
