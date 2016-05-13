@@ -3,7 +3,7 @@
 <!-- usa jquery-->
 <head>
     <meta charset="UTF-8">
-    <script type="javascript" src="cordova.js"></script>
+    <script src="cordova.js"></script>
     <title>Title</title>
 
     <script type="text/javascript" charset="utf-8">
@@ -11,6 +11,7 @@
     document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
+            console.log("called");
             console.log(device.uuid);
             var element = document.getElementById('deviceProperties');
             element.innerHTML= 'Device Name:' + device.uuid;
@@ -19,7 +20,7 @@
 </head>
 <body>
 <p id="deviceProperties">Loading device properties...</p>
-
+<button id="boh" onclick="onDeviceReady();">Prova</button>
 </body>
 
 
