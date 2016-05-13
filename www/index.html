@@ -4,23 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <script src="cordova.js"></script>
+    <script src="smartphone/js/config.js"></script>
     <title>Title</title>
     <script src="smartphone/js/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
-           // var element = document.getElementById('deviceProperties');
-            //element.innerHTML= 'Device Name:' + device.uuid;
+            jQuery.ajax({
+                url: serverUrl+"/isPhoneAuthorized.action",
+                method: "GET",
+                dataType: "json",
+                data: {
+                    uuid: device.uuid
+                        }
+            }).done(function (data) {
+                    if(data.response == "0"){
+                        window.location("no_auth.html");
+                    }
+                if(data.response == "1"){
+                    window.location("pending.html");
+                }
+                if(data.response == "2"){
 
-            $("#deviceProperties").html("Device Name:"+device.uuid);
+                }
+            });
+
         }
     </script>
 </head>
 <body>
-<p id="deviceProperties">Loading device properties...</p>
 
 </body>
+
+
 
 
 </html>
