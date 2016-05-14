@@ -11,6 +11,7 @@
     document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
+            console.log(device.uuid);
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
                 method: "GET",
