@@ -16,7 +16,7 @@
 
         function onDeviceReady() {
            $("#deviceProperties").html("Device Name:"+device.uuid);
-            window.location("pending.html");
+            $("#deviceProperties").window.location("pending.html");
 
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
