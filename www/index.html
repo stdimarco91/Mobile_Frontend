@@ -3,22 +3,23 @@
 <!-- usa jquery-->
 <head>
     <meta charset="UTF-8">
-    <script src="cordova.js">
-        console.log("1");
-        document.addEventListener("deviceready",onDeviceReady,false);
-        function onDeviceReady() {
-            console.log("hello");
-            console.log(device.uuid);
-        }
-    </script>
-    <script src="smartphone/js/config.js"></script>
+    <script src="cordova.js"></script>
     <title>Title</title>
     <script src="smartphone/js/jquery.min.js"></script>
+
+    <script src="smartphone/js/config.js"></script>
+
+
     <script type="text/javascript" charset="utf-8">
+        console.log("1");
         document.addEventListener("deviceready",onDeviceReady,false);
+
         function onDeviceReady() {
-            console.log("hello");
-            console.log(device.uuid);
+            // var element = document.getElementById('deviceProperties');
+            //element.innerHTML= 'Device Name:' + device.uuid;
+
+           $("#deviceProperties").html("Device Name:"+device.uuid);
+
 
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
@@ -43,7 +44,7 @@
     </script>
 </head>
 <body>
-
+<p id="deviceProperties">Loading device properties...</p>
 </body>
 
 
