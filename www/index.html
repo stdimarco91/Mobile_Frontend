@@ -15,8 +15,8 @@
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
-           $("#deviceProperties").html("Device Name:"+device.uuid);
-            $("#deviceProperties").window.location("pending.html");
+
+            $("#deviceProperties").html("Device Name:"+device.uuid);
 
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
@@ -43,6 +43,10 @@
 </head>
 <body>
 <p id="deviceProperties">Loading device properties...</p>
+
+<script>
+    location.href = 'http://localhost:63342/Mobile_Frontend/www/no_auth.html';
+</script>
 </body>
 
 
