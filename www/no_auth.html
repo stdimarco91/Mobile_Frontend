@@ -35,8 +35,8 @@
         document.getElementById("button").onclick = sendRequest ;
         //$("button").addEventListener("button",click,false);
         function sendRequest(){
-            if($("#text").value =="")
-                $("#text").value =="Inserisci campo valido";
+            if($("#text").val()== "")
+                $("#text").val("Inserisci campo valido");
             else{
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
@@ -77,7 +77,7 @@
                         <img src="smartphone/images/user.png" alt="" class="img-responsive" />
                         <span><p>Your phone is not authorized to access the system. Request now your authorization.</p></span>
                         <form>
-                            <input type="text" class="textbox" value="" placeholder="Phone Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone Name';}">
+                            <input type="text" class="textbox" value="" placeholder="Phone Name" id="text">
                             <span></span>
                             <input type="button" value="REQUEST ACCESS" class="bg2"/>
                         </form>
