@@ -11,12 +11,10 @@
 
 
     <script type="text/javascript" charset="utf-8">
-        console.log("1");
+
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
-
-            $("#deviceProperties").html("Device Name:"+device.uuid);
 
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
@@ -42,11 +40,8 @@
     </script>
 </head>
 <body>
-<p id="deviceProperties">Loading device properties...</p>
 
-<script>
-    location.href = 'no_auth.html';
-</script>
+
 </body>
 
 

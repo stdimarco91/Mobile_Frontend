@@ -40,26 +40,24 @@
             else{
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
-                    method: "GET",
+                    method: "POST",
                     dataType: "json",
                     data: {
                         uuid: device.uuid,
                         description: $("#text").value
                     }
                 }).done(function (data) {
-                    if(data.response == "0"){
-                        $("#text").value = "wait consense";
+                    if(data.response == "OK"){
+                        window.location("pending.html");
                     }
-                    if(data.response == "1"){
-                        $("#text").value = "consense denied";
-                    }
-                    if(data.response == "2"){
-                        $("#text").value = "welcome";
+
+                    if(data.response == "ERROR"){
+                        alert("Error on server side, try later");
                     }
                 });
 
             }
-            $("#text").value="function executed";
+
         }
 
     </script>
