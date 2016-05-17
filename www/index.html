@@ -26,10 +26,10 @@
             }).done(function (data) {
                 console.log(data);
                     if(data.response == "0"){
-                        window.location("no_auth.html");
+                        window.location = "no_auth.html";
                     }
                 if(data.response == "1"){
-                    window.location("pending.html");
+                    window.location = "pending.html";
                 }
                 if(data.response == "2"){
 
