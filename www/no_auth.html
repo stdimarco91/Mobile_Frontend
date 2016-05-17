@@ -32,12 +32,12 @@
     <script src="smartphone/js/config.js"></script>
 
     <script type="text/javascript" charset="utf-8">
-        document.getElementById("button").onclick = sendRequest ;
+        //document.getElementById("button").onclick = sendRequest ;
         //$("button").addEventListener("button",click,false);
         function sendRequest(){
-            if($("#text").val()== "")
-                $("#text").val("Inserisci campo valido");
-            else{
+            if($("#text").val() == ""){
+                $("#warning").show();
+            }else{
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
                     method: "POST",
@@ -78,8 +78,10 @@
                         <span><p>Your phone is not authorized to access the system. Request now your authorization.</p></span>
                         <form>
                             <input type="text" class="textbox" value="" placeholder="Phone Name" id="text">
+                            <p style="display: none" id="warning">Insert valid value</p>
                             <span></span>
-                            <input type="button" value="REQUEST ACCESS" class="bg2"/>
+
+                            <input type="button" id="submitbutton" onclick="sendRequest()" value="REQUEST ACCESS" class="bg2"/>
                         </form>
                     </div>
                 </div>
