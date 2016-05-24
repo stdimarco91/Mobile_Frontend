@@ -34,11 +34,17 @@
     <script type="text/javascript" charset="utf-8">
         //document.getElementById("button").onclick = sendRequest ;
         //$("button").addEventListener("button",click,false);
+
         function sendRequest(){
             if($("#text").val() == ""){
                 $("#warning").show();
             }else{
                 alert("req");
+                uid =device.uuid;
+                tex =$("#text").val();
+                alert(uid);
+                alert(tex);
+
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
                     method: "POST",
