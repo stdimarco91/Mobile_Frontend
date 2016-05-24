@@ -47,8 +47,9 @@
                         description: $("#text").value
                     }
                 }).done(function (data) {
+
                     if(data.response == "OK"){
-                        window.location("pending.html");
+                        window.location = "pending.html";
                     }
 
                     if(data.response == "ERROR"){
