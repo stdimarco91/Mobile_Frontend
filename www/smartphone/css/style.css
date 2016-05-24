@@ -252,7 +252,7 @@ nav{margin:0;background:none;}.menu li{display:block;margin:0;}.menu li a{backgr
 	text-transform: capitalize;
 	margin: 10px 0 20px;
 }
-.signin_form span{
+.signin_form .span_spacing{
 	display: block;
 	font-size: 14px;
 	color: #5d5d5d;
