@@ -28,6 +28,7 @@
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
+
             console.log("partita");
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
@@ -37,6 +38,7 @@
                     uuid: device.uuid
                         }
             }).done(function (data) {
+                alert("WAIT");
                 console.log(data);
                     if(data.response == "0"){
                         window.location = "no_auth.html";
