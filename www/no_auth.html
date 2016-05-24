@@ -38,16 +38,17 @@
             if($("#text").val() == ""){
                 $("#warning").show();
             }else{
+                alert("req");
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
                     method: "POST",
                     dataType: "json",
                     data: {
                         uuid: device.uuid,
-                        description: $("#text").value
+                        description: $("#text").val()
                     }
                 }).done(function (data) {
-
+                    alert(data);
                     if(data.response == "OK"){
                         window.location = "pending.html";
                     }
