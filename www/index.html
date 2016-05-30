@@ -22,12 +22,33 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
     <link href="smartphone/css/style.css" rel="stylesheet" type="text/css" media="all" />
 
+    <script type="text/javascript" charset="utf-8">
+        function oneSignalSet(){
+            document.addEventListener('deviceready', function () {
+                // Enable to debug issues.
+                // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+
+                var notificationOpenedCallback = function(jsonData) {
+                    console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+                };
+
+                window.plugins.OneSignal.init("b2f7f966-d8cc-11e4-bed1-df8f05be55ba",
+                        {googleProjectNumber: "703322744261"},
+                        notificationOpenedCallback);
+
+                // Show an alert box if a notification comes in when the user is in your app.
+                window.plugins.OneSignal.enableInAppAlertNotification(true);
+            }, false);
+        }
+    </script>
+
 
     <script type="text/javascript" charset="utf-8">
 
         document.addEventListener("deviceready",onDeviceReady,false);
 
         function onDeviceReady() {
+            oneSignalSet();
 
             console.log("partita");
             jQuery.ajax({
