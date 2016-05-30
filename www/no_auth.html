@@ -41,11 +41,8 @@
             if($("#text").val() == ""){
                 $("#warning").show();
             }else{
-                alert("req");
                 uid =device.uuid;
                 tex =$("#text").val();
-                alert(uid);
-                alert(tex);
 
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
@@ -56,7 +53,6 @@
                         description: $("#text").val()
                     }
                 }).done(function (data) {
-                    alert(data);
                     if(data.response == "OK"){
                         window.location = "pending.html";
                     }

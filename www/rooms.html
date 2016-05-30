@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartHome</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.smartphone/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="smartphone/css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="smartphone/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- start plugins -->
+    <script type="text/javascript" src="smartphone/js/jquery.min.js"></script>
+    <script type="text/javascript" src="smartphone/js/bootstrap.js"></script>
+    <script type="text/javascript" src="smartphone/js/bootstrap.min.js"></script>
+    <!----Calender -------->
+    <link rel="stylesheet" href="smartphone/css/clndr.css" type="text/css" />
+    <script src="smartphone/js/underscore-min.js"></script>
+    <script src= "smartphone/js/moment-2.2.1.js"></script>
+    <script src="smartphone/js/clndr.js"></script>
+    <!--- start circle --->
+
+    <!-- start price_bar  -->
+    <link href="smartphone/css/jquery.nouislider.css" rel="stylesheet">
+    <script src="smartphone/js/jquery.nouislider.js"></script>
+
+    <link href="smartphone/css/bt_style.css" rel="stylesheet" type="text/css">
+    <link href="smartphone/fonts/css/font-awesome.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+
+        function append_rooms() {
+            jQuery.ajax({
+                url: serverUrl+"/getRoomsList.action",
+                method: "GET",
+                dataType: "json"
+            }).done(function (Rooms) {
+                for(i=0;i<Rooms.size;i++){
+
+                    href1 = document.createElement("a");
+                    href1.className= "btn right";
+                    href1.href = "smartphone/sensAttList.html#"+Rooms[i].idRoom;
+
+                    span1 = document.createElement("span");
+                    span1.className= "left title";
+
+                    span2 = document.createElement("span");
+                    span2.className= "arrow-left";
+                    span3 = document.createElement("span");
+                    span3.className= "right icon";
+
+                    span4 = document.createElement("span");
+                    span4.className="span_spacing";
+
+                    i1 = document.createElement("i");
+                    i1.className= "fa fa-chevron-right";
+
+                    span3.appendChild(i1);
+                    span1.appendChild(span2);
+                    span1.innerHTML = span1.innerHTML + " Go to Detail";
+
+                    href1.appendChild(span1);
+                    href1.appendChild(span3);
+
+
+                    helement = document.createElement("h2");
+                    helement.innerHTML = Rooms[i].category; //qui il nome della iesima stanza
+
+                    div1 =document.createElement("div");
+                    div1.className = "signin_form";
+
+                    var img = document.createElement("img");
+
+                    if(Rooms[i].category=="0"){
+                        img.src = "smartphone/images/bagno.png";
+                    }
+                    else if(Rooms[i].category=="1"){
+                        img.src = "smartphone/images/camera-da-letto";
+                    }
+                    else if(Rooms[i].category=="2"){
+                        img.src = "smartphone/images/cucina.jpg";
+                    }
+                    else if(Rooms[i].category=="3"){
+                        img.src = "smartphone/images/soggiorno.jpg";
+                    }
+                    else if(Rooms[i].category=="4"){
+                        img.src = "smartphone/images/corridoio.jpg";
+                    }
+
+                    img.className = "img-responsive";
+                    div1.appendChild(helement);
+                    div1.appendChild(img);
+                    div1.appendChild(span4);
+                    div1.appendChild(href1);
+
+
+
+                    div2 = document.createElement("div");
+                    div2.className = "grid1_of_1";
+                    div2.appendChild(div1);
+
+                    div3 = document.createElement("div");
+                    div3.className = "col-md-6 span1_of_2";
+                    div3.appendChild(div2);
+
+                    div4 = document.createElement("div");
+                    div4.className = "col-md-8 span_of_2";
+                    div4.appendChild(div3);
+
+                    document.getElementById("main").appendChild(div4);
+
+                }
+
+            });
+
+
+
+        }
+    </script>
+
+</head>
+<body>
+<div class="main_bg">
+    <div class="container">
+        <div id="main" class="main">
+            <div class="col-md-8 span_of_2"><!-- start span1_of_2 -->
+                <div class="col-md-6 span1_of_2"><!-- start span1_of_3 style2 -->
+                    <div class="grid1_of_1">
+                        <div class="signin_form">
+                            <h2>Smart Home</h2>
+                            <img src="smartphone/images/user.png" alt="" class="img-responsive" />
+                            <span class="span_spacing"><p>You are logged, choose a room.</p></span>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    append_rooms();
+</script>
+
+
+
+
+</body>
+</html>
