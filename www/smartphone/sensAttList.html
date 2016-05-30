@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SmartHome</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.smartphone/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- start plugins -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!----Calender -------->
+    <link rel="stylesheet" href="css/clndr.css" type="text/css" />
+    <script src="js/underscore-min.js"></script>
+    <script src= "js/moment-2.2.1.js"></script>
+    <script src="js/clndr.js"></script>
+    <!--- start circle --->
+
+    <!-- start price_bar  -->
+    <link href="css/jquery.nouislider.css" rel="stylesheet">
+    <script src="js/jquery.nouislider.js"></script>
+
+    <link href="css/bt_style.css" rel="stylesheet" type="text/css">
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/listStyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function append_sensors(Rooms) {
+
+                var str = window.location.hash.substr(1);
+                var idRoom = str.split("#");
+
+                for(i=0;i<3;i++){
+                    span1 = document.createElement("span");
+                    span1.className="span_spacing";
+
+                    helement = document.createElement("h2");
+                    helement.innerHTML = "Sensori"; //qui il nome della iesima stanza
+
+                    div1 =document.createElement("div");
+                    div1.className = "signin_form";
+
+                    var img = document.createElement("img");
+
+                    img.src = "images/animatedEllipse.gif";
+                    img.className = "img-responsive";
+                    div1.appendChild(helement);
+                    div1.appendChild(img);
+                    div1.appendChild(span1);
+
+                    div2 = document.createElement("div");
+                    div2.className = "grid1_of_1";
+                    div2.appendChild(div1);
+
+                    div3 = document.createElement("div");
+                    div3.className = "col-md-6 span1_of_2";
+                    div3.appendChild(div2);
+
+                    div4 = document.createElement("div");
+                    div4.className = "col-md-8 span_of_2";
+                    div4.appendChild(div3);
+
+                    document.getElementById("main").appendChild(div4);
+                }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        function append_attuators(Rooms) {
+
+            var str = window.location.hash.substr(1);
+            var idRoom = str.split("#");
+
+            for(i=0;i<3;i++){
+                span1 = document.createElement("span");
+                span1.className="span_spacing";
+
+                helement = document.createElement("h2");
+                helement.innerHTML = "Attuatori"; //qui il nome della iesima stanza
+
+                div1 =document.createElement("div");
+                div1.className = "signin_form";
+
+                var img = document.createElement("img");
+                img.src = "images/animatedEllipse.gif";
+                img.className = "img-responsive";
+
+                var att_button = document.createElement("div");
+                att_button.className ="radio-wrapper";
+                var neut_icon = document.createElement("p");
+                neut_icon.className ="neutral-icon";
+                var i1 = document.createElement("i");
+                i1.className ="ion-record";
+                var wrong_icon = document.createElement("p");
+                wrong_icon.className ="wrong";
+                var i2 = document.createElement("i");
+                i2.className ="ion-close-round";
+                var correct_icon = document.createElement("p");
+                correct_icon.className ="correct";
+                var i3 = document.createElement("i");
+                i1.className ="";
+
+                neut_icon.appendChild(i1);
+                wrong_icon.appendChild(i2);
+                correct_icon.appendChild(i3);
+
+                att_button.appendChild(neut_icon);
+                att_button.appendChild(correct_icon);
+                att_button.appendChild(wrong_icon);
+
+                var input1 = document.createElement("input");
+                input1.type = "radio";
+                input1.name = "event"+i;
+                input1.className ="yes";
+                input1.id ="radio-yes"+i;
+                var input2 = document.createElement("input");
+                input2.type = "radio";
+                input2.name = "event"+i;
+                input2.className= "neutral";
+                input2.id ="radio-neutral"+i;
+                input2.checked = true;
+                var input3 = document.createElement("input");
+                input3.type = "radio";
+                input3.name = "event"+i;
+                input3.className = "no";
+                input3.id ="radio-no"+i;
+
+                var l1 = document.createElement("label");
+                l1.htmlFor = "radio-yes"+i;
+
+                var l2 = document.createElement("label");
+                l2.htmlFor = "radio-neutral"+i;
+                var l3 = document.createElement("label");
+                l3.htmlFor = "radio-no"+i;
+
+                att_button.appendChild(input1);
+
+                att_button.appendChild(l1);
+                att_button.appendChild(input2);
+
+                att_button.appendChild(l2);
+                att_button.appendChild(input3);
+
+                att_button.appendChild(l3);
+
+
+
+                div1.appendChild(helement);
+                div1.appendChild(img);
+                div1.appendChild(span1);
+
+                div1.appendChild(att_button);
+
+                div2 = document.createElement("div");
+                div2.className = "grid1_of_1";
+                div2.appendChild(div1);
+
+                div3 = document.createElement("div");
+                div3.className = "col-md-6 span1_of_2";
+                div3.appendChild(div2);
+
+                div4 = document.createElement("div");
+                div4.className = "col-md-8 span_of_2";
+                div4.appendChild(div3);
+
+                document.getElementById("main").appendChild(div4);
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+<div class="main_bg">
+    <div class="container">
+        <div id="main" class="main">
+            <div class="col-md-8 span_of_2"><!-- start span1_of_2 -->
+                <div class="col-md-6 span1_of_2"><!-- start span1_of_3 style2 -->
+                    <div class="grid1_of_1">
+                        <div class="signin_form">
+
+                            <h2>Smart Home</h2>
+                            <img src="images/user.png" alt="" class="img-responsive" />
+                            <span class="span_spacing"><p>Your request has been submitted to the system administrator.</p></span>
+
+                                <div class="radio-wrapper">
+                                    <p class="neutral-icon">
+                                        <i class="ion-record"></i>
+                                    </p>
+                                    <p class="wrong">
+                                        <i class="ion-close-round"></i>
+                                    </p>
+                                    <p class="correct">
+                                        <i class="ion-checkmark-round"></i>
+                                    </p>
+
+                                    <input type="radio"  name="event" class="yes" id="radio-yes" />
+                                    <label for="radio-yes">
+                                    </label>
+                                    <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
+                                    <label for="radio-neutral"></label>
+                                    <input type="radio" name="event" class="no" id="radio-no" />
+                                    <label for="radio-no"></label>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    append_sensors();
+    append_attuators();
+</script>
+</body>
+</html>
