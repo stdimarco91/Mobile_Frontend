@@ -46,13 +46,12 @@
             var str = window.location.hash.substr(1);
             //idRoom = str.split("#");
             idRoom = str;
-            alert(idRoom+"Sens");
             jQuery.ajax({
                 url: serverUrl+"/getRoomSensors.action",
                 method: "GET",
                 dataType: "json",
                 data: {
-                    id: idRoom
+                    id: idRoom,
                 }
             }).done(function (Sensors) {
                 //"idActuator": "", "description": "", "lastStatus": ""
@@ -62,8 +61,9 @@
                     span1.className = "span_spacing";
 
                     helement = document.createElement("h2");
+                    helement1 = document.createElement("h3");
                     helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
-
+                    helement1.innerHTML ="LastRedData: "+ Sensors[i].lastRedData;
                     div1 = document.createElement("div");
                     div1.className = "signin_form";
 
@@ -72,6 +72,7 @@
                     //img.src = "images/animatedEllipse.gif";
                     //img.className = "img-responsive";
                     div1.appendChild(helement);
+                    div1.appendChild(helement1);
                     //div1.appendChild(img);
                     div1.appendChild(span1);
 
@@ -100,7 +101,6 @@
             var str = window.location.hash.substr(1);
             idRoom = str;
           //  console.log(idRoom);
-            alert(idRoom+"Act");
             jQuery.ajax({
                 url: serverUrl+"/getRoomActuators.action",
                 method: "GET",
