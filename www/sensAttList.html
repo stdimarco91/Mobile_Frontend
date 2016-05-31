@@ -61,9 +61,9 @@
                     span1.className = "span_spacing";
 
                     helement = document.createElement("h2");
-                    helement1 = document.createElement("h3");
-                    helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
-                    helement1.innerHTML ="LastRedData: "+ Sensors[i].lastRedData.toString();
+                    helement1 = document.createElement("p");
+                    helement.innerHTML = Sensors[i].description + Sensors[i].lastRedData; //qui il nome della iesima stanza
+                    helement1.innerHTML ="LastRedData: "+ Sensors[i].lastRedData;
                     div1 = document.createElement("div");
                     div1.className = "signin_form";
 
