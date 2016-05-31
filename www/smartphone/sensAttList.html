@@ -37,12 +37,15 @@
         jQuery(document).ready(ready);
 
         function ready() {
+            alert("ready");
             append_sensors();
+            alert("ready2");
             append_attuator();
         }
         function append_sensors() {
             var str = window.location.hash.substr(1);
             var idRoom = str.split("#");
+            alert(idRoom+"Sens");
             jQuery.ajax({
                 url: serverUrl+"/getRoomSensors.action",
                 method: "GET",
@@ -95,6 +98,7 @@
         function append_attuator() {
             var str = window.location.hash.substr(1);
             var idRoom = str.split("#");
+            alert(idRoom+"Act");
             jQuery.ajax({
                 url: serverUrl+"/getRoomActuators.action",
                 method: "GET",
