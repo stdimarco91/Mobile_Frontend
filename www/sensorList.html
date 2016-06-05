@@ -35,31 +35,110 @@
 
 
     <script type="text/javascript">
+        function temp() {
+            for (i = 0; i < 3; i++) {
+                href1 = document.createElement("a");
+                href1.className = "btn right";
+                href1.href = "sensDetails.html#" + i;
 
-        //jQuery(document).ready(ready);
-var Sensors = []
+                span1 = document.createElement("span");
+                span1.className = "left title";
 
+                span2 = document.createElement("span");
+                span2.className = "arrow-left";
+                span3 = document.createElement("span");
+                span3.className = "right icon";
+
+                span4 = document.createElement("span");
+                span4.className = "span_spacing";
+
+                i1 = document.createElement("i");
+                i1.className = "fa fa-chevron-right";
+
+                span3.appendChild(i1);
+                span1.appendChild(span2);
+                span1.innerHTML = span1.innerHTML + " Go to Detail";
+
+                href1.appendChild(span1);
+                href1.appendChild(span3);
+
+
+                helement = document.createElement("h2");
+                helement.innerHTML = "hi"; //qui il nome della iesima stanza
+
+                div1 = document.createElement("div");
+                div1.className = "signin_form";
+
+                div1.appendChild(helement);
+                div1.appendChild(span4);
+                div1.appendChild(href1);
+
+                div2 = document.createElement("div");
+                div2.className = "grid1_of_1";
+                div2.appendChild(div1);
+
+                div3 = document.createElement("div");
+                div3.className = "col-md-6 span1_of_2";
+                div3.appendChild(div2);
+
+                div4 = document.createElement("div");
+                div4.className = "col-md-8 span_of_2";
+                div4.appendChild(div3);
+
+                document.getElementById("main").appendChild(div4);
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(append_sensors);
 
         function append_sensors() {
-                //"idActuator": "", "description": "", "lastStatus": ""
+            // "idSensor": "", "description": "", "lastStatus": ""
+            jQuery.ajax({
+                url: serverUrl + "/getSensorsList.action",
+                method: "GET",
+                dataType: "json"
+            }).done(function (Sensors) {
 
                 for (i = 0; i < Sensors.length; i++) {
+                    href1 = document.createElement("a");
+                    href1.className= "btn right";
+                    href1.href = "sensDetails.html#"+Sensors[i].idSensor;
+
                     span1 = document.createElement("span");
-                    span1.className = "span_spacing";
+                    span1.className= "left title";
+
+                    span2 = document.createElement("span");
+                    span2.className= "arrow-left";
+                    span3 = document.createElement("span");
+                    span3.className= "right icon";
+
+                    span4 = document.createElement("span");
+                    span4.className="span_spacing";
+
+                    i1 = document.createElement("i");
+                    i1.className= "fa fa-chevron-right";
+
+                    span3.appendChild(i1);
+                    span1.appendChild(span2);
+                    span1.innerHTML = span1.innerHTML + " Go to Detail";
+
+                    href1.appendChild(span1);
+                    href1.appendChild(span3);
+
 
                     helement = document.createElement("h2");
-                    //helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
-                    helement.innerHTML = Sensors[i].description;
-                    div1 = document.createElement("div");
+                    helement.innerHTML = Rooms[i].description; //qui il nome della iesima stanza
+
+                    div1 =document.createElement("div");
                     div1.className = "signin_form";
 
-                    //var img = document.createElement("img");
-
-                    //img.src = "images/animatedEllipse.gif";
-                    //img.className = "img-responsive";
                     div1.appendChild(helement);
-                    //div1.appendChild(img);
-                    div1.appendChild(span1);
+                    div1.appendChild(span4);
+                    div1.appendChild(href1);
 
                     div2 = document.createElement("div");
                     div2.className = "grid1_of_1";
@@ -75,6 +154,8 @@ var Sensors = []
 
                     document.getElementById("main").appendChild(div4);
                 }
+
+            });
         }
     </script>
 
@@ -104,8 +185,8 @@ var Sensors = []
 </div>
 
 <script>
-     //append_sensors();
-    // append_attuators();
+     temp();
+
 </script>
 </body>
 </html>

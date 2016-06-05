@@ -44,7 +44,6 @@
         }
         function append_sensors() {
             var str = window.location.hash.substr(1);
-            //idRoom = str.split("#");
             idRoom = str;
             jQuery.ajax({
                 url: serverUrl+"/getRoomSensors.action",

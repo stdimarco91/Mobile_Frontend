@@ -34,35 +34,85 @@
 
 
     <script src="smartphone\js\Chart.js"></script>
-    <script type="text/javascript" >
-        //jQuery(document).ready(append_rooms);
 
-        window.onload=function graphFunction(){
-            var datArray =[1,2,5,4,2];
-            var timeMarkers =["h1","h2","h3","h4"];
-            var datiSerie = {
-                labels :timeMarkers,
-                datasets : [
-                    {
-                        label: "Serie",
-                        fillColor : "#AAF6FF",
-                        strokeColor : "#64A9FF",
-                        highlightFill: "rgba(220,0,220,0.75)",
-                        highlightStroke: "rgba(220,0,220,1)",
-                        pointColor: "#64A9FF",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba((220,0,220,1)",
-                        data : datArray
-                    }
-                ]
+    <script type="text/javascript">
+        window.onload = function temp(){
 
-            }
-            var misure = document.getElementById("misure").getContext("2d"); // Accede all'elemento con id=barre
-            new Chart(misure).Line(datiSerie, {responsive : true}); // Crea il grafico
+        var datArray = [1, 2, 5, 4, 2];
+        var timeMarkers = ["h1", "h2", "h3", "h4"];
+        var datiSerie = {
+            labels: timeMarkers,
+            datasets: [
+                {
+                    label: "Serie",
+                    fillColor: "#AAF6FF",
+                    strokeColor: "#64A9FF",
+                    highlightFill: "rgba(220,0,220,0.75)",
+                    highlightStroke: "rgba(220,0,220,1)",
+                    pointColor: "#64A9FF",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba((220,0,220,1)",
+                    data: datArray
+                }
+            ]
 
         }
+        var misure = document.getElementById("misure").getContext("2d"); // Accede all'elemento con id=barre
+        new Chart(misure).Line(datiSerie, {responsive: true}); // Crea il grafico
+        }
     </script>
+
+
+   <!--<script type="text/javascript" >
+        jQuery(document).ready(graphFunction);
+
+        function graphFunction() {
+                var str = window.location.hash.substr(1);
+                idS = str;
+                var mNumber = "20";
+
+                jQuery.ajax({
+                    url: serverUrl + "/getSensorData.action",
+                    method: "GET",
+                    dataType: "json",
+                    data: {
+                        idSensor: idS,
+                        measuresNumber: mNumber
+                    }
+
+                }).done(function (SensorData) {
+                    var h2 = document.createElement("h2");
+                    h2.innerHTML ="Sensor id: "+SensorData.idSensor;
+
+                    //in che forma sono i dati ricevuti??
+
+                    var datArray = SensorData.status;
+                    var timeMarkers = SensorData.timestamp;
+                    var datiSerie = {
+                        labels: timeMarkers,
+                        datasets: [
+                            {
+                                label: "Serie",
+                                fillColor: "#AAF6FF",
+                                strokeColor: "#64A9FF",
+                                highlightFill: "rgba(220,0,220,0.75)",
+                                highlightStroke: "rgba(220,0,220,1)",
+                                pointColor: "#64A9FF",
+                                pointStrokeColor: "#fff",
+                                pointHighlightFill: "#fff",
+                                pointHighlightStroke: "rgba((220,0,220,1)",
+                                data: datArray
+                            }
+                        ]
+
+                    }
+                    var misure = document.getElementById("misure").getContext("2d"); // Accede all'elemento con id=misure
+                    new Chart(misure).Line(datiSerie, {responsive: true}); // Crea il grafico
+                });
+
+        }
+    </script>-->
 
 </head>
 <body>
@@ -73,12 +123,10 @@
                 <div class="col-md-6 span1_of_2"><!-- start span1_of_3 style2 -->
                     <div class="grid1_of_1">
                         <div class="signin_form">
-                            <h2>Smart Home</h2>
+                            <h2>Variazioni registrate</h2>
                             <canvas id="misure">
 
                             </canvas>
-
-
                         </div>
                     </div>
 
