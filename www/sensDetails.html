@@ -10,7 +10,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.smartphone/js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!----font-Awesome----->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="smartphone/css/font-awesome.min.css">
     <!----font-Awesome----->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
     <link href="smartphone/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -31,53 +31,38 @@
 
     <link href="smartphone/css/bt_style.css" rel="stylesheet" type="text/css">
     <link href="smartphone/fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link href="smartphone/css/listStyle.css" rel="stylesheet" type="text/css">
 
 
-    <script type="text/javascript">
+    <script src="smartphone\js\Chart.js"></script>
+    <script type="text/javascript" >
+        //jQuery(document).ready(append_rooms);
 
-        //jQuery(document).ready(ready);
-var Sensors = []
+        window.onload=function graphFunction(){
+            var datArray =[1,2,5,4,2];
+            var timeMarkers =["h1","h2","h3","h4"];
+            var datiSerie = {
+                labels :timeMarkers,
+                datasets : [
+                    {
+                        label: "Serie",
+                        fillColor : "#AAF6FF",
+                        strokeColor : "#64A9FF",
+                        highlightFill: "rgba(220,0,220,0.75)",
+                        highlightStroke: "rgba(220,0,220,1)",
+                        pointColor: "#64A9FF",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba((220,0,220,1)",
+                        data : datArray
+                    }
+                ]
 
+            }
+            var misure = document.getElementById("misure").getContext("2d"); // Accede all'elemento con id=barre
+            new Chart(misure).Line(datiSerie, {responsive : true}); // Crea il grafico
 
-        function append_sensors() {
-                //"idActuator": "", "description": "", "lastStatus": ""
-
-                for (i = 0; i < Sensors.length; i++) {
-                    span1 = document.createElement("span");
-                    span1.className = "span_spacing";
-
-                    helement = document.createElement("h2");
-                    //helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
-                    helement.innerHTML = Sensors[i].description;
-                    div1 = document.createElement("div");
-                    div1.className = "signin_form";
-
-                    //var img = document.createElement("img");
-
-                    //img.src = "images/animatedEllipse.gif";
-                    //img.className = "img-responsive";
-                    div1.appendChild(helement);
-                    //div1.appendChild(img);
-                    div1.appendChild(span1);
-
-                    div2 = document.createElement("div");
-                    div2.className = "grid1_of_1";
-                    div2.appendChild(div1);
-
-                    div3 = document.createElement("div");
-                    div3.className = "col-md-6 span1_of_2";
-                    div3.appendChild(div2);
-
-                    div4 = document.createElement("div");
-                    div4.className = "col-md-8 span_of_2";
-                    div4.appendChild(div3);
-
-                    document.getElementById("main").appendChild(div4);
-                }
         }
     </script>
-
 
 </head>
 <body>
@@ -88,24 +73,20 @@ var Sensors = []
                 <div class="col-md-6 span1_of_2"><!-- start span1_of_3 style2 -->
                     <div class="grid1_of_1">
                         <div class="signin_form">
-
                             <h2>Smart Home</h2>
-                            <img src="smartphone/images/user.png" alt="" class="img-responsive" />
-                            <span class="span_spacing"><p>See you sensor details.</p></span>
+                            <canvas id="misure">
 
+                            </canvas>
 
 
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-     //append_sensors();
-    // append_attuators();
-</script>
 </body>
 </html>
