@@ -70,7 +70,7 @@
         function graphFunction() {
                 var str = window.location.hash.substr(1);
                 idS = str;
-                var mNumber = 60;
+                var mNumber = 10;
 
                 jQuery.ajax({
                     url: serverUrl + "/getSensorData.action",
@@ -92,12 +92,9 @@
                         }
                         datArray.push(SensorData[i].data);
 
-                        if(i%10 == 0){
                             timeMarkers.push(SensorData[i].timestamp);
 
-                        }else{
-                            timeMarkers.push(" ");
-                        }
+
                         //in che forma sono i dati ricevuti??
                     }
 
