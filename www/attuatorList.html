@@ -25,7 +25,6 @@
     <script src="smartphone/js/clndr.js"></script>
     <!--- start circle --->
     <script src="smartphone/js/config.js"></script>
-
     <!-- start price_bar  -->
     <link href="smartphone/css/jquery.nouislider.css" rel="stylesheet">
     <script src="smartphone/js/jquery.nouislider.js"></script>
@@ -138,8 +137,8 @@
         jQuery(document).ready(append_actuator);
 
         function append_actuator() {
-            var str = window.location.hash.substr(1);
-            idActuator = str;
+            //var str = window.location.hash.substr(1);
+            //idActuator = str;
             //  console.log(idRoom);
             jQuery.ajax({
                 url: serverUrl+"/getActuatorsList.action",
