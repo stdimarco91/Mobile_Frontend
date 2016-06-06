@@ -29,6 +29,15 @@
 
         function onDeviceReady() {
             console.log("partita");
+            var notificationOpenedCallback = function(jsonData) {
+                console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+            };
+            window.plugins.OneSignal.init("b543ff96-20e0-4b9e-b7d1-951fd8169e7a",
+                    {googleProjectNumber: "214219665234",
+                        autoRegister: true},
+                    notificationOpenedCallback);
+            window.plugins.OneSignal.enableInAppAlertNotification(true);
+
             jQuery.ajax({
                 url: serverUrl+"/isPhoneAuthorized.action",
                 method: "GET",
