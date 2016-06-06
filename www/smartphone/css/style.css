@@ -79,7 +79,7 @@ nav{
 	width: 132px;
 	position: absolute;
 	top: 42px;
-	left: 0px;
+	left: 2px;
 	background: #ffffff;
 }
 .menu ul li{display:block;float:none;background:none;margin:0;padding:0;}
@@ -110,11 +110,15 @@ nav{
 .mobile-menu{
 	display: none;
 	width: 92%;
-	padding: 12px;
+	padding-top: 12px;
+	padding-right: 15px;
+	padding-bottom: 12px;
+	padding-left: 12px;
 	background: #7BC5D0;
 	color: #ffffff;
 	text-transform: uppercase;
 	font-size: 16px;
+
 }
 .mobile-menu:hover{background:#5EB0BD;color:#ffffff;text-decoration:none;}
 @media (min-width: 768px) and (max-width: 979px) {.mainWrap{width:768px;}.menu ul{top:37px;}
