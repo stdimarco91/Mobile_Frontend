@@ -25,6 +25,7 @@
     <script src="smartphone/js/clndr.js"></script>
     <!--- start circle --->
     <script src="smartphone/js/config.js"></script>
+
     <!-- start price_bar  -->
     <link href="smartphone/css/jquery.nouislider.css" rel="stylesheet">
     <script src="smartphone/js/jquery.nouislider.js"></script>
@@ -134,28 +135,26 @@
 
 
     <script type="text/javascript">
-        jQuery(document).ready(append_attuator);
+        jQuery(document).ready(append_actuator);
 
-        function append_attuator() {
+        function append_actuator() {
             var str = window.location.hash.substr(1);
-            idRoom = str;
+            idActuator = str;
             //  console.log(idRoom);
             jQuery.ajax({
-                url: serverUrl+"/getRoomActuators.action",
+                url: serverUrl+"/getActuatorsList.action",
                 method: "GET",
-                dataType: "json",
-                data: {
-                    id: idRoom
-                }
-            }).done(function (Attuators) {
+                dataType: "json"
+
+            }).done(function (Actuators) {
                 //"idActuator": "", "description": "", "lastStatus": ""
 
-                for (i = 0; i < Attuators.length; i++) {
+                for (i = 0; i < Actuators.length; i++) {
                     span1 = document.createElement("span");
                     span1.className = "span_spacing";
 
                     helement = document.createElement("h2");
-                    helement.innerHTML = Attuators[i].description; //qui il nome della iesima stanza
+                    helement.innerHTML = Actuators[i].description; //qui il nome della iesima stanza
 
                     div1 = document.createElement("div");
                     div1.className = "signin_form";
@@ -298,7 +297,7 @@
 </div>
 
 <script>
-     temp();
+   //  temp();
 </script>
 </body>
 </html>
