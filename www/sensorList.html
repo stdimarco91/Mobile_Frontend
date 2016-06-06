@@ -34,7 +34,7 @@
     <link href="smartphone/css/listStyle.css" rel="stylesheet" type="text/css">
     <script src="smartphone/js/menu.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         function temp() {
             for (i = 0; i < 3; i++) {
                 href1 = document.createElement("a");
@@ -89,7 +89,7 @@
             }
         }
 
-    </script>
+    </script>-->
 
     <script type="text/javascript">
 
@@ -106,7 +106,7 @@
                 for (i = 0; i < Sensors.length; i++) {
                     href1 = document.createElement("a");
                     href1.className= "btn right";
-                    href1.href = "sensDetails.html#"+Sensors[i].idSensor;
+                    href1.href = "sensDetails.html#"+Sensors[i].idSensors;
 
                     span1 = document.createElement("span");
                     span1.className= "left title";
@@ -131,7 +131,7 @@
 
 
                     helement = document.createElement("h2");
-                    helement.innerHTML = Rooms[i].description; //qui il nome della iesima stanza
+                    helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
 
                     div1 =document.createElement("div");
                     div1.className = "signin_form";
