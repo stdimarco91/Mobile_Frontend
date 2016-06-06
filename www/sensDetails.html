@@ -92,7 +92,12 @@
                         }
                         datArray[i] = SensorData[i].data;
 
+                        if(i%6 == 0) {
                             timeMarkers.push(SensorData[i].timestamp.toString());
+                            }
+                        else{
+                            timeMarkers.push("");
+                        }
 
 
                         //in che forma sono i dati ricevuti??
