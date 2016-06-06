@@ -84,7 +84,7 @@
                 }).done(function (SensorData) {
                     var h2 = document.createElement("h2");
                     var datArray = [];
-                    var timeMarkers = [];
+                    var timeMarkers = ["1","2","3","4","5","6","7","8","9","10"];
 
                     for(i=0;i<SensorData.length;i++) {
                         if (i = 0) {
@@ -92,7 +92,7 @@
                         }
                         datArray.push(SensorData[i].data);
 
-                            timeMarkers.push(SensorData[i].timestamp.toString());
+                            //timeMarkers.push(SensorData[i].timestamp.toString());
 
 
                         //in che forma sono i dati ricevuti??
