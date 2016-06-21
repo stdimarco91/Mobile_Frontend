@@ -132,6 +132,14 @@
         }
     </script>-->
 
+    <script>
+        function Activation(){
+            window.alert("1");
+        }
+        function Deactivation(){
+            window.alert("0");
+        }
+    </script>
 
     <script type="text/javascript">
         jQuery(document).ready(append_actuator);
@@ -186,17 +194,21 @@
                     input1.name = "event" + i;
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
+                    input1.value = 1;
+                    input1.addEventListener("change",Activation);
                     var input2 = document.createElement("input");
                     input2.type = "radio";
                     input2.name = "event" + i;
                     input2.className = "neutral";
-                    input2.id = "radio-neutral" + i;
-                    input2.checked = true;
+                    //input2.id = "radio-neutral" + i;
+                    //input2.checked = true;
                     var input3 = document.createElement("input");
                     input3.type = "radio";
                     input3.name = "event" + i;
                     input3.className = "no";
                     input3.id = "radio-no" + i;
+                    input3.value = 0;
+                    input3.addEventListener("change",Deactivation);
 
                     var l1 = document.createElement("label");
                     l1.htmlFor = "radio-yes" + i;

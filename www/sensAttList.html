@@ -42,7 +42,7 @@
             //alert("ready");
             append_sensors();
             //alert("ready2");
-            append_attuator();
+            append_actuator();
         }
         function append_sensors() {
             var str = window.location.hash.substr(1);
@@ -97,8 +97,18 @@
         }
     </script>
 
+
+    <script>
+        function Activation(){
+            window.alert("1");
+        }
+        function Deactivation(){
+            window.alert("0");
+        }
+    </script>
+
     <script type="text/javascript">
-        function append_attuator() {
+        function append_actuator() {
             var str = window.location.hash.substr(1);
             idRoom = str;
           //  console.log(idRoom);
@@ -109,15 +119,15 @@
                 data: {
                     id: idRoom
                 }
-            }).done(function (Attuators) {
+            }).done(function (Actuators) {
                 //"idActuator": "", "description": "", "lastStatus": ""
 
-                for (i = 0; i < Attuators.length; i++) {
+                for (i = 0; i < Actuators.length; i++) {
                     span1 = document.createElement("span");
                     span1.className = "span_spacing";
 
                     helement = document.createElement("h2");
-                    helement.innerHTML = Attuators[i].description; //qui il nome della iesima stanza
+                    helement.innerHTML = Actuators[i].description; //qui il nome della iesima stanza
 
                     div1 = document.createElement("div");
                     div1.className = "signin_form";
@@ -154,17 +164,21 @@
                     input1.name = "event" + i;
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
+                    input1.value = 1;
+                    input1.addEventListener("change",Activation);
                     var input2 = document.createElement("input");
                     input2.type = "radio";
                     input2.name = "event" + i;
                     input2.className = "neutral";
-                    input2.id = "radio-neutral" + i;
-                    input2.checked = true;
+                    //input2.id = "radio-neutral" + i;
+                    //input2.checked = true;
                     var input3 = document.createElement("input");
                     input3.type = "radio";
                     input3.name = "event" + i;
                     input3.className = "no";
                     input3.id = "radio-no" + i;
+                    input2.value = 0;
+                    input3.addEventListener("change",Deactivation);
 
                     var l1 = document.createElement("label");
                     l1.htmlFor = "radio-yes" + i;
@@ -236,26 +250,6 @@
                             <img src="smartphone/images/user.png" alt="" class="img-responsive" />
                             <span class="span_spacing"><p>Your request has been submitted to the system administrator.</p></span>
 
-                                <div class="radio-wrapper">
-                                    <p class="neutral-icon">
-                                        <i class="ion-record"></i>
-                                    </p>
-                                    <p class="wrong">
-                                        <i class="ion-close-round"></i>
-                                    </p>
-                                    <p class="correct">
-                                        <i class="ion-checkmark-round"></i>
-                                    </p>
-
-                                    <input type="radio"  name="event" class="yes" id="radio-yes" />
-                                    <label for="radio-yes">
-                                    </label>
-                                    <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
-                                    <label for="radio-neutral"></label>
-                                    <input type="radio" name="event" class="no" id="radio-no" />
-                                    <label for="radio-no"></label>
-                                </div>
-
                         </div>
                     </div>
                 </div>
@@ -264,9 +258,5 @@
     </div>
 </div>
 
-<script>
-   // append_sensors();
-   // append_attuators();
-</script>
 </body>
 </html>
