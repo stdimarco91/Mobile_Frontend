@@ -34,17 +34,17 @@
     <script src="smartphone/js/config.js"></script>
 
 
-    <script type="text/javascript" charset="utf-8">
-        function GetOneSignalId() {
-           return  window.plugins.OneSignal.getIds(function (ids) {
-                return ids.userId;
-            });
-        }
-    </script>
 
     <script type="text/javascript" charset="utf-8">
         //document.getElementById("button").onclick = sendRequest ;
         //$("button").addEventListener("button",click,false);
+        var did ='';
+
+        function GetOneSignalId() {
+            window.plugins.OneSignal.getIds(function (ids) {
+                did = ids.userId;
+            });
+        }
 
         function sendRequest(){
             if($("#text").val() == ""){
@@ -52,7 +52,8 @@
             }else{
                 uid =device.uuid;
                 tex =$("#text").val();
-                var sigId =GetOneSignalId();
+                GetOneSignalId();
+                var sigId = did;
 
 
                 jQuery.ajax({
