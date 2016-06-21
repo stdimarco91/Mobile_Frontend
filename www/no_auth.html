@@ -33,6 +33,15 @@
     <!-- authorization request  -->
     <script src="smartphone/js/config.js"></script>
 
+
+    <script type="text/javascript" charset="utf-8">
+        function GetOneSignalId() {
+           return  window.plugins.OneSignal.getIds(function (ids) {
+                return ids.userId;
+            });
+        }
+    </script>
+
     <script type="text/javascript" charset="utf-8">
         //document.getElementById("button").onclick = sendRequest ;
         //$("button").addEventListener("button",click,false);
@@ -43,6 +52,8 @@
             }else{
                 uid =device.uuid;
                 tex =$("#text").val();
+                var sigId =GetOneSignalId();
+
 
                 jQuery.ajax({
                     url: serverUrl+"/requestPhoneAuthorization.action",
@@ -50,7 +61,9 @@
                     dataType: "json",
                     data: {
                         uuid: device.uuid,
-                        description: $("#text").val()
+                        description: $("#text").val(),
+                        oneSigId: sigId
+
                     }
                 }).done(function (data) {
                     if(data.response == "OK"){
