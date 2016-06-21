@@ -36,6 +36,10 @@
                         {googleProjectNumber: "214219665234",
                             autoRegister: true},
                         notificationOpenedCallback);
+                window.plugins.OneSignal.getIds(function(ids) {
+                    did = ids.userId;
+                    window.localStorage.setItem("did",ids.userId);
+                });
                 window.plugins.OneSignal.enableInAppAlertNotification(true);
 
                 jQuery.ajax({
