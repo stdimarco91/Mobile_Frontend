@@ -35,7 +35,7 @@
     <script src="smartphone/js/menu.js" type="text/javascript"></script>
 
     <script>
-        function alarms_Activation(idGroups){
+      /*  function alarms_Activation(idGroups){
             jQuery.ajax({
                 url: serverUrl+"/activateAlarm.action",
                 method: "POST",
@@ -62,7 +62,7 @@
                     window.alert("Error");
                 }
             });
-        }
+        }*/
     </script>
 
 
@@ -208,7 +208,7 @@
 
                     href1 = document.createElement("a");
                     href1.className = "btn right";
-                    href1.href = "groupAlarmsDetails.html"+alarmGroups[i].idGroup;
+                    href1.href = "groupAlarmsDetails.html#"+alarmGroups[i].idGroup;
                     href1.id = i;
 
                     span1 = document.createElement("span");
@@ -267,9 +267,9 @@
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
                     input1.value=1;
-                    input1.addEventListener("change",function () {
-                        alarms_Activation(alarmGroups[i].idGroup);
-                    });
+                   // input1.addEventListener("change",function () {
+                     //   alarms_Activation(alarmGroups[i].idGroup);
+                   // });
                     var input2 = document.createElement("input");
                     input2.type = "radio";
                     input2.name = "event" + i;
@@ -282,9 +282,9 @@
                     input3.className = "no";
                     input3.id = "radio-no" + i;
                     input3.value=0;
-                    input3.addEventListener("change",function () {
-                        alarms_Deactivation(alarmGroups[i].idGroup);
-                    });
+                  //  input3.addEventListener("change",function () {
+                    //    alarms_Deactivation(alarmGroups[i].idGroup);
+                    //});
 
                     var l1 = document.createElement("label");
                     l1.htmlFor = "radio-yes" + i;
