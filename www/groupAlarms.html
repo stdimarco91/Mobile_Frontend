@@ -270,6 +270,8 @@
                     input1.id = "radio-yes" + i;
                     input1.value=1;
                     input1.addEventListener("change",function () {
+                        alert("Green");
+                        alert(alarmGroups[i].idGroup);
                         alarms_Activation(alarmGroups[i].idGroup);
                     });
                     if(alarmGroups[i].active==1){
@@ -287,6 +289,8 @@
                     input3.id = "radio-no" + i;
                     input3.value=0;
                     input3.addEventListener("change",function () {
+                        alert("Red");
+                        alert(alarmGroups[i].idGroup);
                         alarms_Deactivation(alarmGroups[i].idGroup);
                     });
                     if(alarmGroups[i].active==0){
