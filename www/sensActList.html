@@ -146,7 +146,7 @@
 
                     helement = document.createElement("h2");
                     helement1 = document.createElement("p");
-                    helement.innerHTML = "Sensor: "+i; //qui il nome della iesima stanza
+                    helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
                     helement1.innerHTML ="LastRedData: "+Sensors[i].lastRedData;
                     div1 = document.createElement("div");
                     div1.className = "signin_form";
@@ -353,7 +353,7 @@
 
 
     <script>
-        href1 = document.createElement("a");
+  /*      href1 = document.createElement("a");
         href1.className= "btn right";
         href1.href = "sensDetails.html#";
 
@@ -399,7 +399,7 @@
         div4.className = "col-md-8 span_of_2";
         div4.appendChild(div3);
         div1.appendChild(href1);
-        document.getElementById("main").appendChild(div4);
+        document.getElementById("main").appendChild(div4);*/
 
     </script>
 
