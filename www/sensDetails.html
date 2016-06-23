@@ -33,9 +33,9 @@
     <link href="smartphone/fonts/css/font-awesome.min.css" rel="stylesheet">
     <script src="smartphone/js/menu.js" type="text/javascript"></script>
 
-    <!--<script src="smartphone\js\Chart.js"></script>
+    <script src="smartphone\js\Chart.js"></script>
 
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         window.onload = function temp(){
 
         var datArray = [1, 2, 5, 4, 2];
@@ -90,15 +90,15 @@
                         if (i == 0) {
                             h2.innerHTML = "Sensor id: " + SensorData[i].idSensor;
                         }
-                        alert(floor(SensorData[i].data));
+                        //alert(floor(SensorData[i].data));
                         datArray[i] = floor(SensorData[i].data);
 
-                   //     if(i%6 == 0 || i==(SensorData.length-1)) {
+                        if(i%6 == 0 || i==(SensorData.length-1)) {
                             timeMarkers.push(SensorData[i].timestamp.toString());
-                         //   }
-                       // else{
-                         //   timeMarkers.push("");
-//                        }
+                            }
+                        else{
+                            timeMarkers.push("");
+                        }
 
                     }
 
