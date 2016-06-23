@@ -86,7 +86,7 @@
                     var datArray = [];
                     var timeMarkers = [];
                     alert(SensorData);
-                    //alert(floor(SensorData[0].data));
+                    alert(floor(SensorData[0].val));
                     alert(SensorData.length);
 
                     for(i=0;i<SensorData.length;i++) {
@@ -94,8 +94,8 @@
                         if (i == 0) {
                             h2.innerHTML = "Sensor id: " + SensorData[i].idSensor;
                         }
-                        alert(floor(SensorData[i].data));
-                        datArray[i] = floor(SensorData[i].data);
+                        alert(floor(SensorData[i].val));
+                        datArray[i] = floor(SensorData[i].val);
 
                         if(i%6 == 0 || i==(SensorData.length-1)) {
                             timeMarkers.push(SensorData[i].timestamp.toString());
