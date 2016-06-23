@@ -86,7 +86,11 @@
                     var datArray = [];
                     var timeMarkers = [];
                     alert(SensorData);
+                    alert(floor(SensorData[0].data));
+                    alert(floor(SensorData.length));
+
                     for(i=0;i<SensorData.length;i++) {
+                        alert(i);
                         if (i == 0) {
                             h2.innerHTML = "Sensor id: " + SensorData[i].idSensor;
                         }
