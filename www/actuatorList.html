@@ -247,21 +247,36 @@
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
                     input1.value = 1;
-                    input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuator),false);;
+                    input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuator),false);
+
+                    if(Actuators[i].lastStatus==1){
+                        input1.checked = true;
+                    }
+
                     var input2 = document.createElement("input");
                     input2.type = "radio";
                     input2.name = "event" + i;
                     input2.className = "neutral";
                     input2.id = "radio-neutral" + i;
-                    input3.addEventListener("change",actuator_setRed(Actuators[i].idActuator),false);
                     //input2.checked = true;
+
+                    input2.addEventListener("change",actuator_setWhite(Actuators[i].idActuator),false);
+                    if(Actuators[i].lastStatus==2){
+                        input2.checked = true;
+                    }
+
                     var input3 = document.createElement("input");
                     input3.type = "radio";
                     input3.name = "event" + i;
                     input3.className = "no";
                     input3.id = "radio-no" + i;
                     input3.value = 0;
-                    input3.addEventListener("change",actuator_setWhite(Actuators[i].idActuator),false);
+
+
+                    input3.addEventListener("change",actuator_setRed(Actuators[i].idActuator),false);
+                    if(Actuators[i].lastStatus==0){
+                        input3.checked = true;
+                    }
 
                     var l1 = document.createElement("label");
                     l1.htmlFor = "radio-yes" + i;
@@ -318,7 +333,7 @@
                         <li class="color1"><a href="rooms.html">Rooms</a></li>
                         <li class="color2"><a href="groupAlarms.html">AlarmGroups</a></li>
                         <li class="color3"><a href="sensorList.html">Sensors</a></li>
-                        <li class="color4"><a href="actuatorList.html">Attuators</a></li>
+                        <li class="color4"><a href="actuatorList.html">Actuators</a></li>
                     </ul>
                 </nav>
             </div>
@@ -330,27 +345,9 @@
 
                             <h2>Smart Home</h2>
                             <img src="smartphone/images/project_icon.png" alt="" class="img-responsive" />
-                            <span class="span_spacing"><p>Attuator list.</p></span>
+                            <span class="span_spacing"><p>Actuator list.</p></span>
 
-                            <div class="radio-wrapper">
-                                <p class="neutral-icon">
-                                    <i class="ion-record"></i>
-                                </p>
-                                <p class="wrong">
-                                    <i class="ion-close-round"></i>
-                                </p>
-                                <p class="correct">
-                                    <i class="ion-checkmark-round"></i>
-                                </p>
 
-                                <input type="radio"  name="event" class="yes" id="radio-yes" />
-                                <label for="radio-yes">
-                                </label>
-                                <input type="radio" name="event" class="neutral" checked id="radio-neutral" />
-                                <label for="radio-neutral"></label>
-                                <input type="radio" name="event" class="no" id="radio-no" />
-                                <label for="radio-no"></label>
-                            </div>
 
                         </div>
                     </div>

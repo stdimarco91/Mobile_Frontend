@@ -85,14 +85,8 @@
                     var h2 = document.createElement("h2");
                     var datArray = [];
                     var timeMarkers = [];
-                    alert(SensorData);
-                    alert(SensorData.length);
-                    alert(SensorData[0].idSensor);
-
-                    alert(SensorData[0].val);
 
                     for(i=0;i<SensorData.length;i++) {
-                        alert(i);
                         if (i == 0) {
                             h2.innerHTML = "Sensor id: " + SensorData[i].idSensor;
                         }
