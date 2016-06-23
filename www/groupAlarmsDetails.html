@@ -97,11 +97,11 @@
             var str = window.location.hash.substr(1);
             idG = str;
                 jQuery.ajax({
-                    url: serverUrl+"/sensDetails.action",
+                    url: serverUrl+"/getAlarmSensors.action",
                     method: "GET",
                     dataType: "json",
                     data: {
-                        idGroup: idG//idGroup??-----------------------------------------------
+                        id: idG//idGroup??-----------------------------------------------
                     }
 
                 }).done(function (alarmList) {
@@ -135,6 +135,9 @@
 
                         helement = document.createElement("h2");
                         helement.innerHTML = alarmList[i].description; //qui il nome della iesima stanza
+                        helement1 = document.createElement("p");
+                        helement1.innerHTML ="LastRedData: "+alarmList[i].lastRedData;
+
 
                         div1 = document.createElement("div");
                         div1.className = "signin_form";
@@ -196,10 +199,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    //temp();
-</script>
 
 </body>
 </html>
