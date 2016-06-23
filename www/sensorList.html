@@ -131,12 +131,16 @@
 
 
                     helement = document.createElement("h2");
+                    helement1 = document.createElement("p");
                     helement.innerHTML = Sensors[i].description; //qui il nome della iesima stanza
+                    helement1.innerHTML ="Last Value: "+Sensors[i].lastRedData;
 
                     div1 =document.createElement("div");
                     div1.className = "signin_form";
 
                     div1.appendChild(helement);
+                    div1.appendChild(helement1);
+
                     div1.appendChild(span4);
                     div1.appendChild(href1);
 
