@@ -245,7 +245,7 @@
                     input1.value = 1;
                     input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuator),false);
 
-                    if(actuators[i].lastStatus==1){
+                    if(Actuators[i].lastStatus==1){
                         input1.checked = true;
                     }
 
@@ -257,7 +257,7 @@
                     //input2.checked = true;
 
                     input2.addEventListener("change",actuator_setWhite(Actuators[i].idActuator),false);
-                    if(actuators[i].lastStatus==2){
+                    if(Actuators[i].lastStatus==2){
                         input2.checked = true;
                     }
 
@@ -269,7 +269,7 @@
                     input3.value = 0;
                     input3.addEventListener("change",actuator_setRed(Actuators[i].idActuator),false);
 
-                    if(actuators[i].lastStatus==0){
+                    if(Actuators[i].lastStatus==0){
                         input3.checked = true;
                     }
 
