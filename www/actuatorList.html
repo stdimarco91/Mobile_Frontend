@@ -133,12 +133,64 @@
     </script>-->
 
     <script>
-        function Activation(){
-            window.alert("1");
+        function actuator_setGreen(idActuator){
+            return function(){
+
+                jQuery.ajax({
+                    url: serverUrl+"/driveActuatorStatus.action",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        id: idActuator,
+                        status:1
+                    }
+                }).done(function (data) {
+                    if (data.response == "ERROR"){
+                        window.alert("Error");
+                    }
+                });
+            }
         }
-        function Deactivation(){
-            window.alert("0");
+
+        function actuator_setRed(idActuator){
+            return function(){
+
+                jQuery.ajax({
+                    url: serverUrl+"/driveActuatorStatus.action",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        id: idActuator,
+                        status:0
+                    }
+                }).done(function (data) {
+                    if (data.response == "ERROR"){
+                        window.alert("Error");
+                    }
+                });
+            }
         }
+
+        function actuator_setWhite(idActuator){
+            return function(){
+
+                jQuery.ajax({
+                    url: serverUrl+"/driveActuatorStatus.action",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        id: idActuator,
+                        status:2
+                    }
+                }).done(function (data) {
+                    if (data.response == "ERROR"){
+                        window.alert("Error");
+                    }
+                });
+            }
+        }
+
+
     </script>
 
     <script type="text/javascript">
@@ -195,12 +247,13 @@
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
                     input1.value = 1;
-                    input1.addEventListener("change",Activation);
+                    input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuator),false);;
                     var input2 = document.createElement("input");
                     input2.type = "radio";
                     input2.name = "event" + i;
                     input2.className = "neutral";
-                    //input2.id = "radio-neutral" + i;
+                    input2.id = "radio-neutral" + i;
+                    input3.addEventListener("change",actuator_setRed(Actuators[i].idActuator),false);
                     //input2.checked = true;
                     var input3 = document.createElement("input");
                     input3.type = "radio";
@@ -208,7 +261,7 @@
                     input3.className = "no";
                     input3.id = "radio-no" + i;
                     input3.value = 0;
-                    input3.addEventListener("change",Deactivation);
+                    input3.addEventListener("change",actuator_setWhite(Actuators[i].idActuator),false);
 
                     var l1 = document.createElement("label");
                     l1.htmlFor = "radio-yes" + i;
@@ -276,7 +329,7 @@
                         <div class="signin_form">
 
                             <h2>Smart Home</h2>
-                            <img src="smartphone/images/user.png" alt="" class="img-responsive" />
+                            <img src="smartphone/images/project_icon.png" alt="" class="img-responsive" />
                             <span class="span_spacing"><p>Attuator list.</p></span>
 
                             <div class="radio-wrapper">
