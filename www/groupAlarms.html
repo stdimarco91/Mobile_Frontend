@@ -37,7 +37,7 @@
     <script>
         function alarms_Activation(idGroups){
             return function(){
-            alert(idGroups+"verde");
+       //     alert(idGroups+"verde");
             jQuery.ajax({
                 url: serverUrl+"/activateAlarm.action",
                 method: "POST",
@@ -54,7 +54,7 @@
         }
         function alarms_Deactivation(idGroups){
             return function() {
-                alert(idGroups + "rosso");
+        //        alert(idGroups + "rosso");
                 jQuery.ajax({
                     url: serverUrl + "/deactivateAlarm.action",
                     method: "POST",
