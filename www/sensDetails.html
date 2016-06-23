@@ -96,8 +96,7 @@
                         if (i == 0) {
                             h2.innerHTML = "Sensor id: " + SensorData[i].idSensor;
                         }
-                        alert(floor(SensorData[i].val));
-                        datArray[i] = floor(SensorData[i].val);
+                        datArray[i] = SensorData[i].val;
 
                         if(i%6 == 0 || i==(SensorData.length-1)) {
                             timeMarkers.push(SensorData[i].timestamp.toString());
