@@ -35,7 +35,7 @@ body {
 }
 .main_bg{
 	font-family: 'Roboto Slab', serif;
-	background: #F8F1EB;
+	background: rgba(248, 241, 235, 0.28);
 }
 /* start h_menu */
 .h_menu{
@@ -141,11 +141,13 @@ nav{margin:0;background:none;}.menu li{display:block;margin:0;}.menu li a{backgr
 	padding-right: 0px;
 }
 /* start span1_of_3 style1 */
+
 .grid1_of_1{
 	border-top: 10px solid #00D2DF;
-	background: #ffffff;
+	/*background:#FFFFFF;*/
 	padding: 20px;
 	text-align:center;
+
 }
 .grid1_of_1 img{
 	display:inline-block;
