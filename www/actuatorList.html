@@ -247,7 +247,7 @@
                     input1.className = "yes";
                     input1.id = "radio-yes" + i;
                     input1.value = 1;
-                    input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuator),false);
+                    input1.addEventListener("change",actuator_setGreen(Actuators[i].idActuators),false);
 
                     if(Actuators[i].lastStatus==1){
                         input1.checked = true;
@@ -260,7 +260,7 @@
                     input2.id = "radio-neutral" + i;
                     //input2.checked = true;
 
-                    input2.addEventListener("change",actuator_setWhite(Actuators[i].idActuator),false);
+                    input2.addEventListener("change",actuator_setWhite(Actuators[i].idActuators),false);
                     if(Actuators[i].lastStatus==2){
                         input2.checked = true;
                     }
@@ -273,7 +273,7 @@
                     input3.value = 0;
 
 
-                    input3.addEventListener("change",actuator_setRed(Actuators[i].idActuator),false);
+                    input3.addEventListener("change",actuator_setRed(Actuators[i].idActuators),false);
                     if(Actuators[i].lastStatus==0){
                         input3.checked = true;
                     }
